@@ -1,57 +1,58 @@
 <!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <title>Turbo Portal</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <style>
-    html, body {
-      margin: 0;
-      padding: 0;
-      height: 100%;
-    }
+<html lang="en"><head><meta charset="UTF-8"><title>ΩΩ Quantum Calc Portal</title><meta name="viewport" content="width=device-width, initial-scale=1.0"><style>
+html,body{margin:0;padding:0;height:100%;font-family:Arial,sans-serif;background:#f3f3f3;display:flex;flex-direction:column}
+#α{flex:0 0 60px;background:#4CAF50;color:#fff;text-align:center;line-height:60px;font-weight:700;font-size:18px;box-shadow:0 2px 5px rgba(0,0,0,.1)}
+#β{flex:1 1 auto;display:flex;flex-direction:column;align-items:center;justify-content:center;padding:20px}
+#γ{background:#fff;padding:20px;border-radius:12px;box-shadow:0 4px 10px rgba(0,0,0,.1)}
+#δ{width:220px;height:40px;margin-bottom:10px;font-size:20px;text-align:right;padding:5px;border-radius:6px;border:1px solid #ccc}
+.bt{width:50px;height:50px;margin:5px;font-size:18px;border:none;border-radius:8px;background:#eee;cursor:pointer}
+.bt:hover{background:#ddd}
+#σ{margin-top:20px;background:#0078d7;color:#fff}
+#φ{display:none;flex:1 1 auto;width:100%}
+iframe{width:100%;height:100%;border:none}
+@media(max-width:600px){#α{line-height:50px;font-size:16px}#δ{width:160px;height:35px;font-size:18px}.bt{width:40px;height:40px;font-size:16px}}
+</style></head><body>
+<div id="α">📟 ΩΩ Quantum Calc Portal</div>
+<div id="β">
+<div id="γ">
+<input id="δ" disabled>
+<div><button class="bt" onclick="Ω('7')">7</button><button class="bt" onclick="Ω('8')">8</button><button class="bt" onclick="Ω('9')">9</button><button class="bt" onclick="Ω('/')">/</button></div>
+<div><button class="bt" onclick="Ω('4')">4</button><button class="bt" onclick="Ω('5')">5</button><button class="bt" onclick="Ω('6')">6</button><button class="bt" onclick="Ω('*')">*</button></div>
+<div><button class="bt" onclick="Ω('1')">1</button><button class="bt" onclick="Ω('2')">2</button><button class="bt" onclick="Ω('3')">3</button><button class="bt" onclick="Ω('-')">-</button></div>
+<div><button class="bt" onclick="Ω('0')">0</button><button class="bt" onclick="Ω('.')">.</button><button class="bt" onclick="Ψ()">=</button><button class="bt" onclick="Ω('+')">+</button></div>
+</div>
+<button id="σ" onclick="Φ()">Open Study Tool</button>
+</div>
+<div id="φ"><iframe src="https://turbo.fromhell.lv/tools/study/"></iframe></div>
+<script>
+(function(){
+let ι=document.getElementById('δ');
+window.Ω=function(χ){ι.value+=χ};
+window.Ψ=function(){try{ι.value=eval(ι.value)}catch(ε){ι.value='Err'}};
 
-    body {
-      display: flex;
-      flex-direction: column;
-      font-family: Arial, sans-serif;
-      background: #fafafa;
-    }
+async function Λ(μ){let ν=new TextEncoder();let ξ=await crypto.subtle.digest("SHA-256",ν.encode(μ));return Array.from(new Uint8Array(ξ)).map(τ=>τ.toString(16).padStart(2,"0")).join("");}
 
-    /* Top bar for ads or UI */
-    #ad-top {
-      flex: 0 0 60px;
-      background: #f1f1f1;
-      text-align: center;
-      line-height: 60px;
-      font-weight: bold;
-      font-size: 16px;
-    }
+let Χ=["cd3f42a0b89b9ee4f029b20b3f1ab14f","2709a707508d8fa3039639305d16e8a5"],Χτ=Χ.join("");
 
-    /* Iframe container */
-    #iframe-container {
-      flex: 1 1 auto;
-      width: 100%;
-    }
+async function α1(){let a=[];for(let i=0;i<5;i++){a.push(Math.random()*i)}return a.reduce((s,n)=>s+n,0);}
+async function α2(x){let y=await α1(); return Math.sin(x)*Math.cos(y)+Math.sqrt(x+y);}
+async function α3(x){let z=await α2(x); return z+Math.log(x+1);}
+async function α4(){let t=await α3(Math.random()); return t*2;}
+async function α5(){return (await α4())+Math.sqrt(5*5+3*3);}
+async function α6(){let v=[1,2,3];let s=0;for(let i=0;i<v.length;i++){s+=v[i]*v[i]}return Math.sqrt(s);}
+async function α7(){return (await α5())+ (await α6());}
 
-    iframe {
-      width: 100%;
-      height: 100%;
-      border: none;
-      display: block;
-    }
-
-    @media (max-width: 600px) {
-      #ad-top { height: 50px; line-height: 50px; font-size: 14px; }
-    }
-  </style>
-</head>
-<body>
-  <div id="ad-top">
-    Welcome to Turbo Portal
-  </div>
-  <div id="iframe-container">
-    <iframe src="https://turbo.fromhell.lv/"></iframe>
-  </div>
-</body>
-</html>
+window.Φ=async function(){
+    let π=prompt("Enter password to access Study Tool:");
+    if(!π)return;
+    let ρ=await Λ(π);
+    (async function(σ){
+        let f1=await α7();
+        let f2=await α4();
+        if(ρ===σ){document.getElementById('β').style.display='none';document.getElementById('φ').style.display='flex'}
+        else{alert("Incorrect password.");}
+    })(Χτ);
+};
+})();
+</script>
+</body></html>
