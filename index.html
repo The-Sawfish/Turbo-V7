@@ -2,76 +2,47 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>Turbo Portal</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Turbo Portal with Google</title>
   <style>
-    html, body {
-      margin: 0;
-      padding: 0;
-      height: 100%;
-    }
-
-    body {
-      display: flex;
-      flex-direction: column;
-      font-family: Arial, sans-serif;
-      background: #fafafa;
-    }
-
-    /* Top UI / ad bar */
+    body, html { margin:0; padding:0; height:100%; font-family:Arial, sans-serif; }
     #ad-top {
-      flex: 0 0 60px; /* fixed height */
-      background: #f1f1f1;
-      text-align: center;
-      line-height: 60px;
-      font-weight: bold;
-      font-size: 16px;
+      height:60px;
+      background:#f1f1f1;
+      text-align:center;
+      line-height:60px;
+      font-weight:bold;
     }
-
-    /* Main iframe container */
-    #iframe-container {
-      flex: 1 1 auto;
-      width: 100%;
-      display: flex;
-    }
-
-    iframe {
-      width: 100%;
-      height: 100%;
-      border: none;
-      display: block;
-    }
-
-    /* Mobile adjustments */
-    @media (max-width: 600px) {
-      #ad-top { height: 50px; line-height: 50px; font-size: 14px; }
-    }
+    #iframe-container { width:100%; height:calc(100% - 60px); }
+    iframe { width:100%; height:100%; border:none; }
   </style>
 </head>
 <body>
-  <!-- Top ad/UI bar -->
   <div id="ad-top">
+    <!-- Your ad code here -->
     Welcome to Turbo Portal
   </div>
-
-  <!-- Main iframe -->
   <div id="iframe-container">
-    <iframe src="https://turbo.fromhell.lv/" id="main-frame"></iframe>
+    <iframe src="https://www.google.com" id="main-frame"></iframe>
   </div>
 
   <script>
     const iframe = document.getElementById('main-frame');
 
-    // Optional: reset iframe to your URL if navigation occurs
+    // Function to reset iframe to Google.com
+    function resetIframe() {
+        iframe.src = 'https://www.google.com';
+    }
+
+    // Reload Google whenever the iframe URL changes
     iframe.addEventListener('load', () => {
         try {
             const url = iframe.contentWindow.location.href;
-            if (!url.startsWith('https://turbo.fromhell.lv/')) {
-                iframe.src = 'https://turbo.fromhell.lv/';
+            if (!url.startsWith('https://www.google.com')) {
+                resetIframe();
             }
         } catch(e) {
-            // Cross-origin: force reload your URL
-            iframe.src = 'https://turbo.fromhell.lv/';
+            // Cross-origin, just reset
+            resetIframe();
         }
     });
   </script>
