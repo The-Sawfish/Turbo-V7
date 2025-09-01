@@ -9,49 +9,54 @@
       margin: 0;
       padding: 0;
       height: 100%;
-    }
-
-    body {
       display: flex;
       flex-direction: column;
       font-family: Arial, sans-serif;
       background: #fafafa;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
     }
 
-    /* Top bar for ads or UI */
+    #portal-button {
+      padding: 20px 40px;
+      font-size: 24px;
+      font-weight: bold;
+      background: #4285f4;
+      color: white;
+      border: none;
+      border-radius: 10px;
+      cursor: pointer;
+      transition: background 0.3s;
+      text-decoration: none;
+    }
+
+    #portal-button:hover {
+      background: #357ae8;
+    }
+
     #ad-top {
-      flex: 0 0 60px;
+      position: absolute;
+      top: 0;
+      width: 100%;
+      height: 60px;
       background: #f1f1f1;
-      text-align: center;
       line-height: 60px;
       font-weight: bold;
       font-size: 16px;
     }
 
-    /* Iframe container */
-    #iframe-container {
-      flex: 1 1 auto;
-      width: 100%;
-    }
-
-    iframe {
-      width: 100%;
-      height: 100%;
-      border: none;
-      display: block;
-    }
-
     @media (max-width: 600px) {
       #ad-top { height: 50px; line-height: 50px; font-size: 14px; }
+      #portal-button { font-size: 20px; padding: 16px 32px; }
     }
   </style>
 </head>
 <body>
-  <div id="ad-top">
-    Welcome to Turbo Portal
-  </div>
-  <div id="iframe-container">
-    <iframe src="https://turbo.fromhell.lv/"></iframe>
-  </div>
+  <div id="ad-top">Welcome to Turbo Portal</div>
+
+  <a id="portal-button" href="https://turbo.fromhell.lv/" target="_blank">
+    Open TurboV7 Browser
+  </a>
 </body>
 </html>
