@@ -3,17 +3,47 @@
 <head>
   <meta charset="UTF-8">
   <title>Turbo Portal Wrapper</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <style>
-    body, html { margin:0; padding:0; height:100%; }
-    iframe { width:100%; height:90vh; border:none; }
-    #ad-top { height:10vh; background:#f0f0f0; text-align:center; line-height:10vh; }
+    body, html { margin:0; padding:0; height:100%; font-family: Arial, sans-serif; }
+    #ad-top {
+      height:60px;
+      background:#f1f1f1;
+      text-align:center;
+      line-height:60px;
+      font-weight:bold;
+    }
+    #iframe-container { width:100%; height:calc(100% - 60px); }
+    iframe { width:100%; height:100%; border:none; }
   </style>
 </head>
 <body>
+  <!-- Top ad/UI area -->
   <div id="ad-top">
-    <!-- Place your ad code here -->
-    Your Ad Goes Here
+    <!-- Insert your ad code here -->
+    Welcome to Turbo Portal
   </div>
-  <iframe src="https://turbo.fromhell.lv/"></iframe>
+
+  <!-- Main iframe -->
+  <div id="iframe-container">
+    <iframe src="https://www.google.com" id="main-frame"></iframe>
+  </div>
+
+  <script>
+    const iframe = document.getElementById('main-frame');
+
+    // Reset iframe to Google if navigation occurs
+    iframe.addEventListener('load', () => {
+        try {
+            const url = iframe.contentWindow.location.href;
+            if (!url.startsWith('https://www.google.com')) {
+                iframe.src = 'https://www.google.com';
+            }
+        } catch(e) {
+            // Cross-origin navigation attempt: force Google reload
+            iframe.src = 'https://www.google.com';
+        }
+    });
+  </script>
 </body>
 </html>
