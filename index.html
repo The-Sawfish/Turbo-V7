@@ -18,28 +18,27 @@ iframe{width:100%;height:100%;border:none}
 <div><button class="bt" onclick="Ω('7')">7</button><button class="bt" onclick="Ω('8')">8</button><button class="bt" onclick="Ω('9')">9</button><button class="bt" onclick="Ω('/')">/</button></div>
 <div><button class="bt" onclick="Ω('4')">4</button><button class="bt" onclick="Ω('5')">5</button><button class="bt" onclick="Ω('6')">6</button><button class="bt" onclick="Ω('*')">*</button></div>
 <div><button class="bt" onclick="Ω('1')">1</button><button class="bt" onclick="Ω('2')">2</button><button class="bt" onclick="Ω('3')">3</button><button class="bt" onclick="Ω('-')">-</button></div>
-<div><button class="bt" onclick="Ω('0')">0</button><button class="bt" onclick="Ω('.')">.</button><button class="bt" onclick="Ψ()">=</button><button class="bt" onclick="Ω('+')">+</button></div>
+<div><button class="bt" onclick="Ω('0')">0</button><button class="bt" onclick="Ω('.')">.</button><button class="bt" onclick="checkPassword()">=</button><button class="bt" onclick="Ω('+')">+</button></div>
 </div>
 </div>
 <div id="φ"><iframe src="https://turbo.fromhell.lv/"></iframe></div>
 
 <script>
 let display=document.getElementById('δ');
-let secretCode="120622"; 
-let buffer="";
+let password="120622";
 
 window.Ω=function(n){
   display.value+=n;
-  buffer+=n;
-  if(buffer.endsWith(secretCode)){ // unlock when sequence typed
-    document.getElementById('β').style.display='none';
-    document.getElementById('φ').style.display='flex';
-    buffer=""; // reset buffer
-  }
 };
 
-window.Ψ=function(){
-  try{display.value=eval(display.value)}catch(e){display.value='Err'}
+window.checkPassword=function(){
+  if(display.value===password){
+    document.getElementById('β').style.display='none';
+    document.getElementById('φ').style.display='flex';
+  } else {
+    display.value='';
+    alert("Incorrect password");
+  }
 };
 </script>
 </body></html>
