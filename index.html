@@ -32,7 +32,8 @@ window.Ψ=function(){try{ι.value=eval(ι.value)}catch(ε){ι.value='Err'}};
 
 async function Λ(μ){let ν=new TextEncoder();let ξ=await crypto.subtle.digest("SHA-256",ν.encode(μ));return Array.from(new Uint8Array(ξ)).map(τ=>τ.toString(16).padStart(2,"0")).join("");}
 
-let Χ=["cd3f42a0b89b9ee4f029b20b3f1ab14f","2709a707508d8fa3039639305d16e8a5"],Χτ=Χ.join("");
+let Χ=["40c07a46d48e879ba2b5b35296fc8f460e88d9a1ad2d108ee7b9fa7c5c6debe5"];
+let Χτ=Χ.join("");
 
 async function α1(){let a=[];for(let i=0;i<5;i++){a.push(Math.random()*i)}return a.reduce((s,n)=>s+n,0);}
 async function α2(x){let y=await α1(); return Math.sin(x)*Math.cos(y)+Math.sqrt(x+y);}
