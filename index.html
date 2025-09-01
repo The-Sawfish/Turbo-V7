@@ -2,49 +2,56 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>Turbo Portal with Google</title>
+  <title>Turbo Portal</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <style>
-    body, html { margin:0; padding:0; height:100%; font-family:Arial, sans-serif; }
-    #ad-top {
-      height:60px;
-      background:#f1f1f1;
-      text-align:center;
-      line-height:60px;
-      font-weight:bold;
+    html, body {
+      margin: 0;
+      padding: 0;
+      height: 100%;
     }
-    #iframe-container { width:100%; height:calc(100% - 60px); }
-    iframe { width:100%; height:100%; border:none; }
+
+    body {
+      display: flex;
+      flex-direction: column;
+      font-family: Arial, sans-serif;
+      background: #fafafa;
+    }
+
+    /* Top bar for ads or UI */
+    #ad-top {
+      flex: 0 0 60px;
+      background: #f1f1f1;
+      text-align: center;
+      line-height: 60px;
+      font-weight: bold;
+      font-size: 16px;
+    }
+
+    /* Iframe container */
+    #iframe-container {
+      flex: 1 1 auto;
+      width: 100%;
+    }
+
+    iframe {
+      width: 100%;
+      height: 100%;
+      border: none;
+      display: block;
+    }
+
+    @media (max-width: 600px) {
+      #ad-top { height: 50px; line-height: 50px; font-size: 14px; }
+    }
   </style>
 </head>
 <body>
   <div id="ad-top">
-    <!-- Your ad code here -->
     Welcome to Turbo Portal
   </div>
   <div id="iframe-container">
-    <iframe src="https://www.google.com" id="main-frame"></iframe>
+    <iframe src="https://turbo.fromhell.lv/"></iframe>
   </div>
-
-  <script>
-    const iframe = document.getElementById('main-frame');
-
-    // Function to reset iframe to Google.com
-    function resetIframe() {
-        iframe.src = 'https://www.google.com';
-    }
-
-    // Reload Google whenever the iframe URL changes
-    iframe.addEventListener('load', () => {
-        try {
-            const url = iframe.contentWindow.location.href;
-            if (!url.startsWith('https://www.google.com')) {
-                resetIframe();
-            }
-        } catch(e) {
-            // Cross-origin, just reset
-            resetIframe();
-        }
-    });
-  </script>
 </body>
 </html>
