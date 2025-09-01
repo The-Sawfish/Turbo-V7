@@ -1,24 +1,19 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Fast Mini Browser</title>
-<link rel="stylesheet" href="style.css">
+  <meta charset="UTF-8">
+  <title>Turbo Portal Wrapper</title>
+  <style>
+    body, html { margin:0; padding:0; height:100%; }
+    iframe { width:100%; height:90vh; border:none; }
+    #ad-top { height:10vh; background:#f0f0f0; text-align:center; line-height:10vh; }
+  </style>
 </head>
 <body>
-
-<header>
-  <div class="search-bar">
-    <input id="url-bar" type="text" placeholder="Search or type URL">
-    <button onclick="goToURL()">Go</button>
+  <div id="ad-top">
+    <!-- Place your ad code here -->
+    Your Ad Goes Here
   </div>
-</header>
-
-<main>
-  <div id="iframe-container"></div>
-</main>
-
-<script src="main.js"></script>
+  <iframe src="https://turbo.fromhell.lv/"></iframe>
 </body>
 </html>
